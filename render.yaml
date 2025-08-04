@@ -1,0 +1,9 @@
+services:
+  - type: worker
+    name: selenium-scraper
+    env: python
+    buildCommand: |
+      ./install_chrome.sh
+      pip install -r requirements.txt
+    startCommand: python scraper.py
+    schedule: "0 6 * * *"  # every day at 06:00 UTC
